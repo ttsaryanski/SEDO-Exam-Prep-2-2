@@ -21,7 +21,7 @@ pipeline{
         }
         stage("Build application") {
             when {
-                expression { return env.BRANCH_NAME == 'main' }
+                expression { return env.GIT_BRANCH == 'origin/main' }
             }
             steps{
                 echo "dotnet build --no-restore"
@@ -37,7 +37,7 @@ pipeline{
         }
         stage("Run tests") {
             when {
-                expression { return env.BRANCH_NAME == 'main' }
+                expression { env.BRANCH_NAME == 'main' }
             }
             steps{
                 echo "dotnet test --no-restore --no-build"
