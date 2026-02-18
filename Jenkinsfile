@@ -6,7 +6,7 @@ pipeline{
         stage("Install dependencies") {
             when {
                 anyOf {
-                    branch 'main'
+                    branch "main"
                 }
             }
             steps{
@@ -24,7 +24,7 @@ pipeline{
         stage("Build application") {
             when {
                 anyOf {
-                    branch 'main'
+                    branch "main"
                 }
             }
             steps{
@@ -42,7 +42,7 @@ pipeline{
         stage("Run tests") {
             when {
                 anyOf {
-                    branch 'main'
+                    branch "main"
                 }
             }
             steps{
