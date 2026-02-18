@@ -57,6 +57,11 @@ pipeline{
                 }
             }
         }
+        stage('Debug branch') {
+            steps {
+                echo "Branch is: ${env.BRANCH_NAME}"
+            }
+        }
     }
     post{
         success{
