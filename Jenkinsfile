@@ -19,8 +19,6 @@ pipeline{
                 }
             }
         }
-    }
-    stages{
         stage("Build application"){
             steps{
                 echo "dotnet build --no-restore"
@@ -34,8 +32,6 @@ pipeline{
                 }
             }
         }
-    }
-    stages{
         stage("Run tests"){
             steps{
                 echo "dotnet test --no-restore --no-build"
