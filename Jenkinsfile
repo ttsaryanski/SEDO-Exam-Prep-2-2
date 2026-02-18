@@ -8,7 +8,7 @@ pipeline{
                 expression { return env.GIT_BRANCH == 'origin/main' }
             }
             steps{
-                echo "dotnet restore"
+                bat "dotnet restore"
             }
             post{
                 success{
@@ -24,14 +24,14 @@ pipeline{
                 expression { return env.GIT_BRANCH == 'origin/main' }
             }
             steps{
-                echo "dotnet build --no-restore"
+                bat "dotnet build --no-restore"
             }
             post{
                 success{
                     echo "========Build application executed successfully========"
                 }
                 failure{
-                    echo "========Build application execution failed========"
+                    bat "========Build application execution failed========"
                 }
             }
         }
