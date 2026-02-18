@@ -1,10 +1,11 @@
 pipeline{
+
     agent any
 
     stages{
-        stage("Install dependencies"){
-            when{
-                anyOf{
+        stage("Install dependencies") {
+            when {
+                anyOf {
                     branch 'main'
                 }
             }
@@ -20,9 +21,9 @@ pipeline{
                 }
             }
         }
-        stage("Build application"){
-            when{
-                anyOf{
+        stage("Build application") {
+            when {
+                anyOf {
                     branch 'main'
                 }
             }
@@ -38,9 +39,9 @@ pipeline{
                 }
             }
         }
-        stage("Run tests"){
-            when{
-                anyOf{
+        stage("Run tests") {
+            when {
+                anyOf {
                     branch 'main'
                 }
             }
