@@ -1,4 +1,13 @@
-# SEDO-Regular-Exam-2025-01
+⚠️ Experimental repository - Used for learning and testing:
 
-test jenkins pipeline
-test jenkins pipeline 2
+# GitHub Actions Playground
+
+- GitHub Actions
+- CI/CD workflows
+
+## Jenkins CI/CD Pipeline
+
+- Jenkins Pipeline development
+- CI/CD automation
+
+Not intended for production use - educational purposes only.
