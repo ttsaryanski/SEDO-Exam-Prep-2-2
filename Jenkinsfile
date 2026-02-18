@@ -31,7 +31,7 @@ pipeline{
                     echo "========Build application executed successfully========"
                 }
                 failure{
-                    bat "========Build application execution failed========"
+                    echo "========Build application execution failed========"
                 }
             }
         }
@@ -40,7 +40,7 @@ pipeline{
                 expression { return env.GIT_BRANCH == 'origin/main' }
             }
             steps{
-                echo "dotnet test --no-restore --no-build"
+                bat "dotnet test --no-restore --no-build"
             }
             post{
                 success{
@@ -49,11 +49,6 @@ pipeline{
                 failure{
                     echo "========Run tests execution failed========"
                 }
-            }
-        }
-        stage('Debug branch') {
-            steps {
-                echo "Branch is: ${env.GIT_BRANCH}"
             }
         }
     }
