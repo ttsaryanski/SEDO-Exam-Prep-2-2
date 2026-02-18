@@ -4,11 +4,6 @@ pipeline{
 
     stages{
         stage("Install dependencies") {
-            when {
-                anyOf {
-                    branch "main"
-                }
-            }
             steps{
                 echo "dotnet restore"
             }
@@ -22,11 +17,6 @@ pipeline{
             }
         }
         stage("Build application") {
-            when {
-                anyOf {
-                    branch "main"
-                }
-            }
             steps{
                 echo "dotnet build --no-restore"
             }
@@ -40,11 +30,6 @@ pipeline{
             }
         }
         stage("Run tests") {
-            when {
-                anyOf {
-                    branch "main"
-                }
-            }
             steps{
                 echo "dotnet test --no-restore --no-build"
             }
