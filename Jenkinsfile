@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage("Install dependencies") {
             when {
-                expression { return env.BRANCH_NAME == 'main' }
+                expression { return env.GIT_BRANCH == 'origin/main' }
             }
             steps{
                 echo "dotnet restore"
@@ -37,7 +37,7 @@ pipeline{
         }
         stage("Run tests") {
             when {
-                expression { env.BRANCH_NAME == 'main' }
+                expression { return env.GIT_BRANCH == 'origin/main' }
             }
             steps{
                 echo "dotnet test --no-restore --no-build"
@@ -53,7 +53,7 @@ pipeline{
         }
         stage('Debug branch') {
             steps {
-                echo "Branch is: ${env.BRANCH_NAME}"
+                echo "Branch is: ${env.GIT_BRANCH}"
             }
         }
     }
