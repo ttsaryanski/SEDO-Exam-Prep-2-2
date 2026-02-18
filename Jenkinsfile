@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage("Install dependencies") {
             when {
-                branch "main"
+                expression { return env.BRANCH_NAME == 'main' }
             }
             steps{
                 echo "dotnet restore"
@@ -21,7 +21,7 @@ pipeline{
         }
         stage("Build application") {
             when {
-                branch "main"
+                expression { return env.BRANCH_NAME == 'main' }
             }
             steps{
                 echo "dotnet build --no-restore"
@@ -37,7 +37,7 @@ pipeline{
         }
         stage("Run tests") {
             when {
-                branch "main"
+                expression { return env.BRANCH_NAME == 'main' }
             }
             steps{
                 echo "dotnet test --no-restore --no-build"
